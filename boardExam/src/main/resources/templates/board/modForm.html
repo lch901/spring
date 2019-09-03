@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	  layout:decorator="common_layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<a th:href="@{'detail/'+ ${boardVo.i}}" th:text="리스트"></a>
+		<form action="#" th:action="@{mod}" th:object="${boardVo}" th:method="put">
+			번호 : <input type="text" th:field="*{i}" readonly><br>
+			제목 : <input type="text" th:field="*{title}"/><br>
+			내용 : <input type="text" th:field="*{content}"><br>
+			<input type="submit" value="수정">
+		</form>
+	</section>
+</body>
+</html>

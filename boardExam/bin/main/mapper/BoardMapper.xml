@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lch.board.dao.BoardMapper">
+	<select id="getBoardList" resultType="board">
+		select * from t_board
+	</select>
+	<select id="getBoard" resultType="board" parameterType="board">
+		select * from t_board where i = ${i}
+	</select>
+	<insert id="insertBoard" parameterType="board">
+		insert into t_board(title,content)values(#{title},#{content})
+	</insert>
+	<update id="modBoard" parameterType="board">
+		update t_board set title = #{title}, content = #{content} where i = #{i}
+	</update>
+	<delete id="deleteBoard" parameterType="int">
+		delete from t_board where i = #{i}
+	</delete>
+	<!-- #:문자열, $:숫자 -->
+</mapper>
